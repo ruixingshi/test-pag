@@ -102,16 +102,6 @@ export default function PagAnimation({
           if (loop) {
             const canvas = canvasRef.current;
             if (canvas) {
-              const checkAndRestart = () => {
-                if (pagViewRef.current && isMounted) {
-                  try {
-                    (pagViewRef.current as any).play();
-                  } catch (e) {
-                    console.warn("Failed to restart animation:", e);
-                  }
-                }
-              };
-
               // Set up a timer as fallback to ensure continuous playback
               const intervalId = setInterval(() => {
                 if (pagViewRef.current && isMounted) {
